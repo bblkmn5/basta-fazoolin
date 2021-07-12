@@ -1,3 +1,10 @@
+class Business:
+#initialize variables
+  def __init__(self, name, franchises):
+    self.name = name
+    self.franchises = franchises
+
+
 class Franchise:
 #initialize variables
   def __init__(self, address, menus):
@@ -63,6 +70,11 @@ kids_items = {
 }
 kids_menu = Menu("kids", kids_items, 1100, 2100)
 
+arepas_items = {
+  'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50
+}
+arepas_menu = Menu("arepas", arepas_items, 1000, 2000)
+
 #combine all menus into one variable for reusability
 menus = [brunch_menu, early_bird_menu, dinner_menu, kids_menu]
 
@@ -70,6 +82,16 @@ menus = [brunch_menu, early_bird_menu, dinner_menu, kids_menu]
 flagship_store = Franchise("1232 West End Road", menus)
 new_installment = Franchise("12 East Mulberry Street", menus)
 
-print(flagship_store)
+arepas_place = Franchise("189 Fitzgerald Avenue", [arepas_menu])
+
 print(flagship_store.available_menus(1200))
 print(new_installment.available_menus(1700))
+
+franchises = [flagship_store, new_installment]
+
+basta_fazoolin = Business("Basta Fazoolin with my Heart", franchises)
+# print(basta_fazoolin)
+
+take_a_arepa = Business("Take a' Arepa", [arepas_place])
+print(take_a_arepa.franchises[0].menus[0])
+
